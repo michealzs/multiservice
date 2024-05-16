@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <style>
+    .bg-1 {
+        letter-spacing: 6px;
+        text-align: center;
+    }
+    .topad {
+        padding-top: 0.5px;
+    }
+    .botpad{
+        padding-bottom: 20px;
+    }
+    .lfpad {
+        padding-left: 80px;
+        padding-right:80px;
+    }
+    .black {
+        color: black;
+    }
+    .containe {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .side {
+        padding-top: 20px;
+    }
+    .color {
+        border: 2px solid ;
+    }
+    .sel{
+        width: 100%;
+        height: 200px;
+        background-image: url('https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F666029%2Fstock-chart-crash-correction-plunge-bounce-bear-market-bar-trend-invest-crypto-getty.jpg&w=700&op=resize');
+        background-size: cover;
+    }
+    </style>
+    <title> Stockie Stocks </title>
+</head>
+<body>
+<!--
+    <strong> Sample </strong>
+    {% for temp in stock_data %}
+    {{temp.currency}}
+    {{temp.stock_price}}
+    {% endfor %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+-->
+    <div class="navbar-light bg-light bg-1">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link black" aria-current="page" href="#">STOCKIE</a>
+            </li>
+        </ul>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light topad">
+        <div class="contain">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav me-auto">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="http://michealzs.pythonanywhere.com">
+                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="">
+                                    <label class="btn btn-outline-primary" for="btnradio1">Home</label>
+                                    <span class="visually-hidden">(current)</span>
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.centralcharts.com/en/price-list-ranking/ALL/asc/ts_29-us-nyse-stocks--qc_1-alphabetical-order">
+                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked="">
+                                    <label class="btn btn-outline-primary" for="btnradio2">Chart</label>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://michealzs.pythonanywhere.com">
+                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked="">
+                                    <label class="btn btn-outline-primary" for="btnradio3">Pricing</label>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active sel">
+
+        </div>
+      </div>
+    </div>
+
+
+<!--
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                {{ form.name }}
+                            </div>
+                            <div class="control">
+                                <button class="button is-info">
+                                    Add Stock
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+
+    <div class="card text-center">
+        <div class="card-header"></div>
+            <div class="card-body">
+                <h5 class="card-title"> Search </h5>
+                <section class="section">
+                    <div class="container">
+                        <div class="columns">
+                            <div class="column is-offset-4 is-4">
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <div class="field has-addons">
+                                        <div class="control is-expanded">
+                                            {{ form.name }}
+                                        </div>
+                                        <div class="control">
+                                            <button class="button is-rounded btn btn-primary text-center is-info">
+                                                Add Stock
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!--                                            -->
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    {% for temp in stock_data %}
+                    <div class="box">
+                        <div class="card">
+                            <header class="card-header">
+                                <span class="title card-header-title">{{temp.symbol}}</span>
+                                <span class="card-header-title subtitle">${{temp.name}}</span>
+                                <span class="card-header-title subtitle">Price : ${{temp.price}}</span>
+                            </header>
+                            <footer class="card-footer">
+                                <p href="#" class="card-footer-item">Date {{temp.day_date}}</p>
+                                <p href="#" class="card-footer-item">Previous Date{{temp.previous_date}} </p>
+                            </footer>
+                            <footer class="card-footer">
+                                <p class="card-footer-item">Current Volume{{temp.day_volume}}</p>
+                                <p class="card-footer-item">Previous Volume {{temp.previous_volume}}</p>
+                            </footer>
+                            <footer class="card-footer">
+                                <p class="card-footer-item">Current Open {{temp.day_open}}</p>
+                                <p class="card-footer-item">Previous Open {{temp.previous_open}}</p>
+                            </footer>
+                            <footer class="card-footer">
+                                <p class="card-footer-item">Current High {{temp.day_high}}</p>
+                                <p class="card-footer-item">Previous High {{temp.previous_high}}</p>
+                            </footer>
+                            <footer class="card-footer">
+                                <p class="card-footer-item">Current Low {{temp.day_low}}</p>
+                                <p class="card-footer-item">Previous Low {{temp.previous_low}}</p>
+                            </footer>
+                            <footer class="card-footer">
+                                <p class="card-footer-item">Current Close {{temp.day_close}}</p>
+                                <p class="card-footer-item">Previous Close {{temp.previous_close}}</p>
+                            </footer>
+                            <footer class="card-footer">
+                                <p href="#" class="card-footer-item">Market Change {{temp.market_change}}</p>
+                                <p href="#" class="card-footer-item">Change {{temp.market_change_percent}} </p>
+                            </footer>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+<!--    <footer class="footer">
+    </footer>
+-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

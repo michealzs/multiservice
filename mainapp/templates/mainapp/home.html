@@ -1,0 +1,86 @@
+{% extends "mainapp/base.html" %}
+
+{% block content %}
+<main>
+<div class="container">
+<section class="section">
+  <div class="card" "card w-25 mb-3">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+<!-- Stox -->
+        <div class="slider">
+            <div class="slide-track">
+            {% for temp in stock_data %}
+            	<div class="slide">
+                    {{temp.symbol}}
+                    {{temp.name}}
+                    ${{temp.price}}
+                    {{temp.market_change}}
+                    {{temp.market_change_percent}}
+                </div>
+            {% endfor %}
+                <!--
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+        		</div>
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+        		</div>
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+        		</div>
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+        		</div>
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+        		</div>
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+        		</div>
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+        		</div>
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+        		</div>
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+        		</div>
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+        		</div>
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+        		</div>
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+        		</div>
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+        		</div>
+        		<div class="slide">
+        			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+        		</div>
+        		-->
+        	</div>
+        </div>
+<!-- Stocks -->
+
+            <h1>Custom Web Design</h1>
+                <p class="lead"><i class="bi bi-check2-circle"></i>Affordable</p>
+                <p class="lead"><i class="bi bi-check2-circle"></i>Responsive</p>
+                <p class="lead"><i class="bi bi-check2-circle"></i>Free Revions</p>
+                <p class="lead"><i class="bi bi-check2-circle"></i>Logo Design</p>
+                <a href="{% url 'stocksapp:home' %}"  class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
+
+    </div>
+  </div>
+</section>
+</div>
+</main>
+
+
+{% endblock content %}
+
+

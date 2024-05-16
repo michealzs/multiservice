@@ -1,0 +1,102 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if message %}
+<div class="alert alert-success" role="alert">
+    {{ message }}
+</div>
+{% endif %}
+
+<div class="jumbotron">
+    <!--<div class="card container">-->
+        <div class="card text-center">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+            {% if user.is_authenticated %}
+                <hr class="my-4">
+                <h1 class="display-4">Hello {{ profile.first_name }}</h1>
+                <hr class="my-4">
+            {% else %}
+            <hr class="my-4">
+                <h1>Welcome new user. Please log in.</h1>
+                <hr class="my-4">
+                <a class="btn btn-primary btn-lg" href="{% url 'store:login' %}" role="button">Login</a>
+            {% endif %}
+            </div>
+        </div>
+    <!--</div>-->
+</div>
+<div class="card container">
+    <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+        <div class="btn-group-vertical position-relative" role="group" aria-label="Basic outlined example">
+          <a class="navbar-brand" href="{% url 'store:profile' %}"><span class="badge badge-pill bg-primary rounded-circle text-center" style="width: 70px; height: 70px; font-size: 26px; line-height: 2.4;">A</span></a>
+          <!--<a href="{% url 'store:profile' %}"><button type="button" class="btn btn-outline-primary">Profile</button></a>-->
+          <a href="{% url 'store:order_history' %}"><button type="button" class="btn btn-outline-primary">History</button></a>
+          <!--<a href="{#{% url 'store:order_history' %}#}"><button type="button" class="btn btn-outline-primary">Tracking</button></a>-->
+        </div>
+    </div>
+
+    <div class="col-12 col-md-9 col-lg-10">
+    <h3>  DETAILS </h3>
+      <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+        <div class="">
+          <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h4 class="font-weight-bold m-0">Profile</h4>
+              <a href="{% url 'store:update_account' %}"><button type="button" class="btn btn-outline-primary">Edit</button></a>
+              <!--<a href="{% url 'store:update_account' %}" class="text-primary" aria-label="Edit Profile">Edit</a>-->
+            </div>
+            <div class="card-body text-muted">
+              <div class="row">
+                <div class="col-4">
+                   <p class="lead">First Name</p>
+                </div>
+                <div class="col-8">{{profile.first_name}}</div>
+              </div>
+              <hr class="my-4">
+              <div class="row">
+                <div class="col-4">
+                  <p class="lead">Last Name</p>
+                </div>
+                <div class="col-8">{{profile.last_name}}</div>
+              </div>
+              <hr class="my-4">
+              <div class="row">
+                <div class="col-4">
+                  <p class="lead">Email</p>
+                </div>
+                <div class="col-8">{{profile.email}}</div>
+                <hr class="my-4">
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <p class="lead">Mobile</h3>
+                </div>
+                <div class="col-8">???</div>
+              </div>
+            </div>
+          </div>
+          <div class="card mt-3" >
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h4 class="font-weight-bold m-0">Password</h4>
+              <a href="{% url 'store:password_change' %}"><button type="button" class="btn btn-outline-primary">Edit</button></a>
+              <!--<a href="{% url 'store:password_change' %}" class="text-primary" aria-label="Change Password">Edit</a>-->
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12">********</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+</div>
+
+{% endblock %}

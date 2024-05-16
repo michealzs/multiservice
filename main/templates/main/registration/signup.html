@@ -1,0 +1,37 @@
+
+{% extends "base.html" %}
+
+
+{% block content %}
+<!--
+<form class="signup" method="post">
+  {#{% csrf_token %}#}
+  <fieldset>
+    <legend>Legend</legend>
+    <div class="form-group">
+      {#{{ form.as_p }}#}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
+-->
+<div class="container">
+<div class="card">
+               <td>&nbsp;</td>
+            <div class="card-body">
+            <div class="col align-self-start">
+           <p><a href="{% url "store:login" %}">Log In</a> | Sign Up</p>
+             </div>
+             <td>&nbsp;</td>
+<div class="custom1">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}
