@@ -39,7 +39,7 @@ The Django project, templates, and static assets were removed.
 
 ### Docker (recommended)
 ```bash
-cp .env.example .env          # optionally add OPENAI_API_KEY for full /chat
+cp .env.example .env          # optionally add DEEPSEEK_API_KEY for full /chat
 docker compose up -d --build
 curl localhost:8000/healthz
 curl -X POST localhost:8000/ingest/TSLA
@@ -59,7 +59,7 @@ make run
 The service runs **end-to-end with no API keys**: stock CRUD and live scraping
 work as-is; embeddings fall back to a deterministic offline implementation and
 the vector store falls back to an in-memory cosine index; `/chat` returns a
-tool-only summary. Provide `OPENAI_API_KEY` (or `ANTHROPIC_API_KEY`) to enable
+tool-only summary. Provide `DEEPSEEK_API_KEY` (or `OPENAI_API_KEY` / `ANTHROPIC_API_KEY`) to enable
 full natural-language answers, and Langfuse/LangSmith keys to enable tracing.
 
 ## Vector backends

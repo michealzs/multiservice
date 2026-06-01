@@ -38,6 +38,13 @@ class StockAgent:
         return create_react_agent(self._llm(), build_tools())
 
     def _llm(self):
+        if self.settings.llm_provider == "deepseek":
+            from langchain_deepseek import ChatDeepSeek
+
+            return ChatDeepSeek(
+                model=self.settings.chat_model,
+                api_key=self.settings.deepseek_api_key,
+            )
         if self.settings.llm_provider == "anthropic":
             from langchain_anthropic import ChatAnthropic
 
@@ -75,7 +82,7 @@ class StockAgent:
         sources: list[str] = []
         parts = [
             "LLM provider not configured — returning a tool-only summary. "
-            "Set OPENAI_API_KEY (or ANTHROPIC_API_KEY) for full natural-language answers."
+            "Set DEEPSEEK_API_KEY (or OPENAI_API_KEY/ANTHROPIC_API_KEY) for full natural-language answers."
         ]
 
         hits = search_knowledge_raw(message, k=3)
